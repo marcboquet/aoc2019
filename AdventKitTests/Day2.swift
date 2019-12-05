@@ -5,7 +5,7 @@ class Day2: XCTestCase {
     
     func testSolutionPart1() {
         let items: [Int] = InputReader(name: "2-1-input").csvLine()
-        XCTAssertEqual(Computer.run(inputItems: items).first!, 3654868)
+        XCTAssertEqual(try! Computer.run(inputItems: items).first!, 3654868)
     }
     
     func testSolutionPart2() {
@@ -18,7 +18,7 @@ class Day2: XCTestCase {
                 var testItems = items
                 testItems[1] = noun
                 testItems[2] = verb
-                let output = Computer.run(inputItems: testItems)
+                let output = try! Computer.run(inputItems: testItems)
                 if output[0] == desiredOutput {
                     answer = 100 * noun + verb
                     break loopyloop
