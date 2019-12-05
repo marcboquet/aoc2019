@@ -21,7 +21,7 @@ public class Computer {
         var outputs = [Int]()
         
         runloop: while true {
-            var operation = Operation(instructionPointer: instructionPointer, memoryPointer: &memory)
+            let operation = Operation(instructionPointerPointer: &instructionPointer, memoryPointer: &memory)
             switch operation.opcode {
             case .halt:
                 break runloop
@@ -30,7 +30,6 @@ public class Computer {
                     outputs.append(output)
                 }
             }
-            instructionPointer = operation.instructionPointer
         }
         return outputs
     }
@@ -54,6 +53,7 @@ enum Opcode: Int {
 }
 
 struct Operation {
+    var instructionPointerPointer: UnsafeMutablePointer<Int>
     var instructionPointer: Int
     let memoryPointer: UnsafeMutablePointer<Int>
     let opcode: Opcode
@@ -105,13 +105,14 @@ struct Operation {
         }
     }
     
-    init(instructionPointer: Int, memoryPointer: UnsafeMutablePointer<Int>) {
-        self.instructionPointer = instructionPointer
+    init(instructionPointerPointer: UnsafeMutablePointer<Int>, memoryPointer: UnsafeMutablePointer<Int>) {
+        self.instructionPointerPointer = instructionPointerPointer
+        self.instructionPointer = instructionPointerPointer.pointee
         self.memoryPointer = memoryPointer
         self.opcode = Opcode(rawValue: memoryPointer.advanced(by: instructionPointer).pointee % 100) ?? Opcode.unknown
     }
     
-    mutating func execute(input: Int? = nil) throws -> Int? {
+    func execute(input: Int? = nil) throws -> Int? {
         var output: Int?
         var newInstructionPointer: Int?
 
@@ -152,7 +153,7 @@ struct Operation {
         default:
             throw ProgramError.invalidOpcode(message: "Invalid opcode at \(instructionPointer)")
         }
-        instructionPointer = newInstructionPointer ?? instructionPointer + size
+        instructionPointerPointer.pointee = newInstructionPointer ?? instructionPointer + size
         return output
     }
 }
