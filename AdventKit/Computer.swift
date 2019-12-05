@@ -21,16 +21,16 @@ public class Computer {
         var outputs = [Int]()
         
         runloop: while true {
-            let operation = Operation(instructionPointer: instructionPointer, memoryPointer: &memory)
+            var operation = Operation(instructionPointer: instructionPointer, memoryPointer: &memory)
             switch operation.opcode {
             case .halt:
                 break runloop
             default:
-                if let output = try! operation.execute(input: input) {
+                if let output = try operation.execute(input: input) {
                     outputs.append(output)
                 }
             }
-            instructionPointer += operation.size
+            instructionPointer = operation.instructionPointer
         }
         return outputs
     }
@@ -49,11 +49,12 @@ enum ProgramError: Error {
 enum Opcode: Int {
     case unknown = 0
     case add, multiply, input, output
+    case jumpIfTrue, jumpIfFalse, lessThan, equals
     case halt = 99
 }
 
 struct Operation {
-    let instructionPointer: Int
+    var instructionPointer: Int
     let memoryPointer: UnsafeMutablePointer<Int>
     let opcode: Opcode
     
@@ -97,6 +98,8 @@ struct Operation {
         switch opcode {
         case .input, .output:
             return 2
+        case .jumpIfTrue, .jumpIfFalse:
+            return 3
         default:
             return 4
         }
@@ -108,8 +111,10 @@ struct Operation {
         self.opcode = Opcode(rawValue: memoryPointer.advanced(by: instructionPointer).pointee % 100) ?? Opcode.unknown
     }
     
-    func execute(input: Int? = nil) throws -> Int? {
+    mutating func execute(input: Int? = nil) throws -> Int? {
         var output: Int?
+        var newInstructionPointer: Int?
+
         switch opcode {
         case .add:
             let storage = parameter3
@@ -118,9 +123,27 @@ struct Operation {
         case .multiply:
             let storage = parameter3
             storage.pointee = parameter1.pointee * parameter2.pointee
+                
+        case .lessThan:
+            let storage = parameter3
+            storage.pointee = parameter1.pointee < parameter2.pointee ? 1 : 0
+            
+        case .jumpIfTrue:
+            if parameter1.pointee != 0 {
+                newInstructionPointer = parameter2.pointee
+            }
+            
+        case .jumpIfFalse:
+            if parameter1.pointee == 0 {
+                newInstructionPointer = parameter2.pointee
+            }
+            
+        case .equals:
+            let storage = parameter3
+            storage.pointee = parameter1.pointee == parameter2.pointee ? 1 : 0
         
         case .input:
-            let storage = parameter3
+            let storage = parameter1
             storage.pointee = input!
             
         case .output:
@@ -129,6 +152,7 @@ struct Operation {
         default:
             throw ProgramError.invalidOpcode(message: "Invalid opcode at \(instructionPointer)")
         }
+        instructionPointer = newInstructionPointer ?? instructionPointer + size
         return output
     }
 }
