@@ -5,15 +5,17 @@ public struct OrbitMap {
 
     init(map: [String]) {
         for orbit in map {
-            let objects = orbit.split(separator: ")").map{ String($0) }
-            if orbits[objects[0]] == nil {
-                orbits[objects[0]] = Orbit(name: objects[0])
+            let objects = orbit.split(separator: ")")
+            let orbited = String(objects[0])
+            let orbiting = String(objects[1])
+            if orbits[orbited] == nil {
+                orbits[orbited] = Orbit(name: orbited)
             }
-            if orbits[objects[1]] == nil {
-                orbits[objects[1]] = Orbit(name: objects[1])
+            if orbits[orbiting] == nil {
+                orbits[orbiting] = Orbit(name: orbiting)
             }
-            let child = orbits[objects[1]]!
-            orbits[objects[0]]?.addOrbit(orbit: child)
+            let child = orbits[orbiting]!
+            orbits[orbited]?.addOrbit(orbit: child)
         }
     }
     
@@ -23,33 +25,62 @@ public struct OrbitMap {
         }
     }
     
-    class Orbit {
-        var orbits = [Orbit]()
-        weak var orbiting: Orbit? {
-            didSet {
-                if let parentRank = orbiting?.rank {
-                    rank = parentRank + 1
-                }
-            }
+    func santaDistance() -> Int {
+        var jumps = 0
+        var currentOrbit = orbits["YOU"]?.orbiting
+        while !currentOrbit!.santaAround {
+            currentOrbit = currentOrbit?.orbiting
+            jumps += 1
         }
+        while currentOrbit!.name != "SAN" {
+            currentOrbit = currentOrbit?.orbits.first(where: { (orbit) -> Bool in
+                orbit.santaAround
+            })
+            jumps += 1
+        }
+        return jumps - 1
+    }
+}
 
-        let name: String
-        var rank: Int? {
-            didSet {
-                if let rank = rank {
-                    self.orbits.forEach { $0.rank = rank + 1 }
-                }
+class Orbit {
+    var orbits = [Orbit]()
+    weak var orbiting: Orbit? {
+        didSet {
+            if let parentRank = orbiting?.rank {
+                rank = parentRank + 1
             }
         }
-        
-        init(name: String, rank: Int? = nil) {
-            self.name = name
-            self.rank = rank
+    }
+
+    let name: String
+    var rank: Int? {
+        didSet {
+            if let rank = rank {
+                self.orbits.forEach { $0.rank = rank + 1 }
+            }
         }
-        
-        func addOrbit(orbit: Orbit) {
-            orbits.append(orbit)
-            orbit.orbiting = self
+    }
+    var santaAround: Bool = false {
+        didSet {
+            if santaAround {
+                orbiting?.santaAround = true
+            }
+        }
+    }
+    
+    init(name: String, rank: Int? = nil) {
+        self.name = name
+        self.rank = rank
+        if name == "SAN" {
+            self.santaAround = true
+        }
+    }
+    
+    func addOrbit(orbit: Orbit) {
+        orbits.append(orbit)
+        orbit.orbiting = self
+        if orbit.santaAround {
+            self.santaAround = true
         }
     }
 }
