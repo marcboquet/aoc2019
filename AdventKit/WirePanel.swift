@@ -1,11 +1,3 @@
-//
-//  WirePanel.swift
-//  AdventKit
-//
-//  Created by Marc Boquet on 03/12/2019.
-//  Copyright © 2019 Marc. All rights reserved.
-//
-
 import Foundation
 
 public class WirePanel {

@@ -20,6 +20,13 @@ public class InputReader {
         return lines
     }
     
+    public func lines() -> [String] {
+        let lines: [String] = content.lines.compactMap { (line) -> String? in
+            return line.isEmpty ? nil : line
+        }
+        return lines
+    }
+    
     public func csv() -> [[String]] {
         return content.lines.compactMap { (line) -> [String]? in
             let csvLine = line.components(separatedBy: ",").map { (item) -> String in
