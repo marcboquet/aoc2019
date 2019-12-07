@@ -2,34 +2,61 @@ import Foundation
 
 public class Computer {
     var memory: [Int]
-    var instructionPointer: Int
+    var instructionPointer: Int = 0
+    var waiting = false
 
     init(program: [Int]) {
         self.memory = program
-        self.instructionPointer = 0
     }
     
-    public func run(input: Int = 0) throws -> [Int] {
+    public func run(input: [Int] = []) throws -> [Int] {
+        self.instructionPointer = 0
         var outputs = [Int]()
-        
+        let inputs = Input(inputs: input)
+        waiting = false
+
         runloop: while true {
-            let operation = Operation(instructionPointerPointer: &instructionPointer, memoryPointer: &memory)
+            var operation = Operation(instructionPointerPointer: &instructionPointer, memoryPointer: &memory, input: inputs)
             switch operation.opcode {
             case .halt:
                 break runloop
             default:
-                if let output = try operation.execute(input: input) {
+                if let output = try operation.execute() {
                     outputs.append(output)
+                }
+                if operation.waiting {
+                    waiting = true
+                    break runloop
                 }
             }
         }
         return outputs
+    }
+    
+    public func run(input: Int) throws -> [Int] {
+        return try run(input: [input])
+    }
+    
+    public func run() throws -> [Int] {
+        return try run(input: [])
     }
 
     static func run(inputItems: [Int]) throws -> [Int] {
         let computer = Computer(program: inputItems)
         _ = try computer.run()
         return computer.memory
+    }
+}
+
+class Input {
+    var inputs = [Int]()
+    
+    init(inputs: [Int]) {
+        self.inputs = inputs.reversed()
+    }
+    
+    func next() -> Int? {
+        return inputs.popLast()
     }
 }
 
@@ -48,7 +75,9 @@ struct Operation {
     var instructionPointerPointer: UnsafeMutablePointer<Int>
     var instructionPointer: Int
     let memoryPointer: UnsafeMutablePointer<Int>
+    var input: Input
     let opcode: Opcode
+    var waiting = false
     
     var parameterModes: [Int] {
         let intCode = memoryPointer.advanced(by: instructionPointer).pointee
@@ -97,14 +126,15 @@ struct Operation {
         }
     }
     
-    init(instructionPointerPointer: UnsafeMutablePointer<Int>, memoryPointer: UnsafeMutablePointer<Int>) {
+    init(instructionPointerPointer: UnsafeMutablePointer<Int>, memoryPointer: UnsafeMutablePointer<Int>, input: Input) {
         self.instructionPointerPointer = instructionPointerPointer
+        self.input = input
         self.instructionPointer = instructionPointerPointer.pointee
         self.memoryPointer = memoryPointer
         self.opcode = Opcode(rawValue: memoryPointer.advanced(by: instructionPointer).pointee % 100) ?? Opcode.unknown
     }
     
-    func execute(input: Int? = nil) throws -> Int? {
+    mutating func execute() throws -> Int? {
         var output: Int?
         var newInstructionPointer: Int?
 
@@ -137,7 +167,11 @@ struct Operation {
         
         case .input:
             let storage = parameter1
-            storage.pointee = input!
+            if let inputValue = input.next() {
+                storage.pointee = inputValue
+            } else {
+                waiting = true
+            }
             
         case .output:
             output = parameter1.pointee
