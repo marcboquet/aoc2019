@@ -15,7 +15,8 @@ struct Amplifiers {
         var output = [Int]()
         for i in 0...4 {
             let computer = computers[i]
-            output = try! computer.run(input: [sequence[i], signal])
+            var input = [sequence[i], signal]
+            output = try! computer.run(input: &input)
             signal = output.last!
         }
         return signal
@@ -26,15 +27,13 @@ struct Amplifiers {
             Computer(program: program)
         }
         var lastOutput: Int? = 0
-        var inputs: [[Int]] = [[0],[],[],[],[]]
+        var inputs: [[Int]] = [[sequence[0], 0],[sequence[1]],[sequence[2]],[sequence[3]],[sequence[4]]]
         var i = 0
         while true {
             let computer = computers[i]
             print("computer \(i)")
-            var input: [Int] = [sequence[i]]
-            input.append(contentsOf: inputs[i])
-            let output = try! computer.run(input: input)
-            inputs[(i+1)%5] = output
+            let output = try! computer.run(input: &inputs[i])
+            inputs[(i+1)%5].append(contentsOf: output)
             if i == 4 && !computer.waiting {
                 lastOutput = output.last
                 break

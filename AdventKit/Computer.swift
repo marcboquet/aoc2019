@@ -7,12 +7,12 @@ public class Computer {
 
     init(program: [Int]) {
         self.memory = program
+        self.instructionPointer = 0
     }
     
-    public func run(input: [Int] = []) throws -> [Int] {
-        self.instructionPointer = 0
+    public func run( input: inout [Int]) throws -> [Int] {
         var outputs = [Int]()
-        let inputs = Input(inputs: input)
+        let inputs = Input(inputs: &input)
         waiting = false
 
         runloop: while true {
@@ -34,11 +34,13 @@ public class Computer {
     }
     
     public func run(input: Int) throws -> [Int] {
-        return try run(input: [input])
+        var input = [input]
+        return try run(input: &input)
     }
     
     public func run() throws -> [Int] {
-        return try run(input: [])
+        var input = [Int]()
+        return try run(input: &input)
     }
 
     static func run(inputItems: [Int]) throws -> [Int] {
@@ -51,12 +53,15 @@ public class Computer {
 class Input {
     var inputs = [Int]()
     
-    init(inputs: [Int]) {
-        self.inputs = inputs.reversed()
+    init(inputs: inout [Int]) {
+        self.inputs = inputs
     }
     
     func next() -> Int? {
-        return inputs.popLast()
+        if inputs.count == 0 {
+            return nil
+        }
+        return inputs.remove(at: 0)
     }
 }
 
