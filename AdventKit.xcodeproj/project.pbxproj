@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4931CF00239CD11400732B40 /* 8-1-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4931CEFF239CD11400732B40 /* 8-1-input.txt */; };
+		4931CF04239CD13A00732B40 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931CF03239CD13A00732B40 /* Day8.swift */; };
+		4931CF06239CD38F00732B40 /* SpaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931CF05239CD38F00732B40 /* SpaceImage.swift */; };
 		496C9935239BB1C600E4654B /* 7-1-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 496C9934239BB1C600E4654B /* 7-1-input.txt */; };
 		497CE30023978FF400D7E218 /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497CE2FF23978FF400D7E218 /* Day4.swift */; };
 		497CE3022397A0E200D7E218 /* PasswordGuesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497CE3012397A0E200D7E218 /* PasswordGuesser.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4931CEFF239CD11400732B40 /* 8-1-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "8-1-input.txt"; sourceTree = "<group>"; };
+		4931CF03239CD13A00732B40 /* Day8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day8.swift; sourceTree = "<group>"; };
+		4931CF05239CD38F00732B40 /* SpaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceImage.swift; sourceTree = "<group>"; };
 		496C9934239BB1C600E4654B /* 7-1-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-1-input.txt"; sourceTree = "<group>"; };
 		497CE2FF23978FF400D7E218 /* Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4.swift; sourceTree = "<group>"; };
 		497CE3012397A0E200D7E218 /* PasswordGuesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGuesser.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				49E911F72398F3C3008D1579 /* 5-1-input.txt */,
 				49CF040D239A37B700F71BDC /* 6-1-input.txt */,
 				496C9934239BB1C600E4654B /* 7-1-input.txt */,
+				4931CEFF239CD11400732B40 /* 8-1-input.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 				497CE3012397A0E200D7E218 /* PasswordGuesser.swift */,
 				49CF040B239A31AE00F71BDC /* OrbitMap.swift */,
 				49C9C9C4239BA33C001CAD65 /* Amplifiers.swift */,
+				4931CF05239CD38F00732B40 /* SpaceImage.swift */,
 			);
 			path = AdventKit;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 				49E911F52398F380008D1579 /* Day5.swift */,
 				49CF0409239A317E00F71BDC /* Day6.swift */,
 				49C9C9C2239BA2D0001CAD65 /* Day7.swift */,
+				4931CF03239CD13A00732B40 /* Day8.swift */,
 			);
 			path = AdventKitTests;
 			sourceTree = "<group>";
@@ -262,6 +271,7 @@
 				499F1F062397CCA800827A7A /* 3-1-input.txt in Resources */,
 				499F1F042397CCA800827A7A /* 2-1-input.txt in Resources */,
 				496C9935239BB1C600E4654B /* 7-1-input.txt in Resources */,
+				4931CF00239CD11400732B40 /* 8-1-input.txt in Resources */,
 				499F1F052397CCA800827A7A /* 1-1-input.txt in Resources */,
 				49E911F82398F3C3008D1579 /* 5-1-input.txt in Resources */,
 			);
@@ -288,6 +298,7 @@
 				49B68759239674EA0080C79C /* WirePanel.swift in Sources */,
 				49B6875723966F980080C79C /* String+lines.swift in Sources */,
 				49B6875523966F4B0080C79C /* InputReader.swift in Sources */,
+				4931CF06239CD38F00732B40 /* SpaceImage.swift in Sources */,
 				49BCC08B2397B5920038C687 /* Int+digits.swift in Sources */,
 				49CF040C239A31AE00F71BDC /* OrbitMap.swift in Sources */,
 			);
@@ -300,6 +311,7 @@
 				497CE30023978FF400D7E218 /* Day4.swift in Sources */,
 				499F1F082397D58500827A7A /* Day1.swift in Sources */,
 				49E911F62398F380008D1579 /* Day5.swift in Sources */,
+				4931CF04239CD13A00732B40 /* Day8.swift in Sources */,
 				499F1EFF2397CB7A00827A7A /* Day2.swift in Sources */,
 				49C9C9C3239BA2D0001CAD65 /* Day7.swift in Sources */,
 				49CF040A239A317E00F71BDC /* Day6.swift in Sources */,

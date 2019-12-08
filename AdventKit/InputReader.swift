@@ -10,7 +10,7 @@ public class InputReader {
     public var content: String {
         let path = Bundle(for: type(of: self)).path(forResource: "Resources/\(name)", ofType: "txt")
         let content: String = try! String(contentsOfFile: path!, encoding: .utf8)
-        return content
+        return content.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     public func lines() -> [Int] {
