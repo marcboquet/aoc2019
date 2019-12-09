@@ -3,10 +3,12 @@ import Foundation
 public class Computer {
     var memory: [Int]
     var instructionPointer: Int = 0
+    var relativeBase: Int = 0
     var waiting = false
 
     init(program: [Int]) {
         self.memory = program
+        self.memory.append(contentsOf: Array(repeating: 0, count: program.count * 10))
         self.instructionPointer = 0
     }
     
@@ -16,7 +18,7 @@ public class Computer {
         waiting = false
 
         runloop: while true {
-            var operation = Operation(instructionPointerPointer: &instructionPointer, memoryPointer: &memory, input: inputs)
+            var operation = Operation(instructionPointerPointer: &instructionPointer, memoryPointer: &memory, input: inputs, relativeBase: relativeBase)
             switch operation.opcode {
             case .halt:
                 break runloop
@@ -24,6 +26,7 @@ public class Computer {
                 if let output = try operation.execute() {
                     outputs.append(output)
                 }
+                relativeBase = operation.relativeBase
                 if operation.waiting {
                     waiting = true
                     break runloop
@@ -73,12 +76,14 @@ enum Opcode: Int {
     case unknown = 0
     case add, multiply, input, output
     case jumpIfTrue, jumpIfFalse, lessThan, equals
+    case setBase
     case halt = 99
 }
 
 struct Operation {
     var instructionPointerPointer: UnsafeMutablePointer<Int>
     var instructionPointer: Int
+    var relativeBase: Int
     let memoryPointer: UnsafeMutablePointer<Int>
     var input: Input
     let opcode: Opcode
@@ -97,6 +102,8 @@ struct Operation {
         let value = memoryPointer.advanced(by: instructionPointer + 1)
         if parameterModes[0] == 1 {
             return value
+        } else if parameterModes[0] == 2 {
+            return memoryPointer.advanced(by: relativeBase + value.pointee)
         } else {
             return memoryPointer.advanced(by: value.pointee)
         }
@@ -106,6 +113,8 @@ struct Operation {
         let value = memoryPointer.advanced(by: instructionPointer + 2)
         if parameterModes[1] == 1 {
             return value
+        } else if parameterModes[1] == 2 {
+            return memoryPointer.advanced(by: relativeBase + value.pointee)
         } else {
             return memoryPointer.advanced(by: value.pointee)
         }
@@ -115,6 +124,8 @@ struct Operation {
         let value = memoryPointer.advanced(by: instructionPointer + 3)
         if parameterModes[2] == 1 {
             return value
+        } else if parameterModes[2] == 2 {
+            return memoryPointer.advanced(by: relativeBase + value.pointee)
         } else {
             return memoryPointer.advanced(by: value.pointee)
         }
@@ -122,7 +133,7 @@ struct Operation {
     
     var size: Int {
         switch opcode {
-        case .input, .output:
+        case .input, .output, .setBase:
             return 2
         case .jumpIfTrue, .jumpIfFalse:
             return 3
@@ -131,12 +142,13 @@ struct Operation {
         }
     }
     
-    init(instructionPointerPointer: UnsafeMutablePointer<Int>, memoryPointer: UnsafeMutablePointer<Int>, input: Input) {
+    init(instructionPointerPointer: UnsafeMutablePointer<Int>, memoryPointer: UnsafeMutablePointer<Int>, input: Input, relativeBase: Int = 0) {
         self.instructionPointerPointer = instructionPointerPointer
         self.input = input
         self.instructionPointer = instructionPointerPointer.pointee
         self.memoryPointer = memoryPointer
         self.opcode = Opcode(rawValue: memoryPointer.advanced(by: instructionPointer).pointee % 100) ?? Opcode.unknown
+        self.relativeBase = relativeBase
     }
     
     mutating func execute() throws -> Int? {
@@ -180,7 +192,10 @@ struct Operation {
             
         case .output:
             output = parameter1.pointee
-            
+
+        case .setBase:
+            relativeBase += parameter1.pointee
+
         default:
             throw ProgramError.invalidOpcode(message: "Invalid opcode at \(instructionPointer)")
         }
