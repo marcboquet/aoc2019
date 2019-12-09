@@ -188,6 +188,7 @@ struct Operation {
                 storage.pointee = inputValue
             } else {
                 waiting = true
+                newInstructionPointer = instructionPointer
             }
             
         case .output:
