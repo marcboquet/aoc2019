@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490D916E23A0C78C00BCC3AE /* 11-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 490D916D23A0C78C00BCC3AE /* 11-input.txt */; };
+		490D917023A0C79700BCC3AE /* Day11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D916F23A0C79700BCC3AE /* Day11.swift */; };
+		490D917223A0C85700BCC3AE /* PaintRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D917123A0C85700BCC3AE /* PaintRobot.swift */; };
 		4918DFBF239F681800E8BC47 /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFBE239F681800E8BC47 /* Day10.swift */; };
 		4918DFC1239F69D500E8BC47 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFC0239F69D500E8BC47 /* CGVector+Extensions.swift */; };
 		4918DFC3239F6BD100E8BC47 /* AsteroidMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */; };
@@ -28,7 +31,7 @@
 		49B6875723966F980080C79C /* String+lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6875623966F980080C79C /* String+lines.swift */; };
 		49B68759239674EA0080C79C /* WirePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B68758239674EA0080C79C /* WirePanel.swift */; };
 		49B6875B2396766C0080C79C /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6875A2396766C0080C79C /* Day3.swift */; };
-		49B6875D239683030080C79C /* CGPoint+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6875C239683030080C79C /* CGPoint+Hashable.swift */; };
+		49B6875D239683030080C79C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6875C239683030080C79C /* CGPoint+Extensions.swift */; };
 		49BCC08B2397B5920038C687 /* Int+digits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC08A2397B5920038C687 /* Int+digits.swift */; };
 		49C9C9C3239BA2D0001CAD65 /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C9C9C2239BA2D0001CAD65 /* Day7.swift */; };
 		49C9C9C5239BA33C001CAD65 /* Amplifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C9C9C4239BA33C001CAD65 /* Amplifiers.swift */; };
@@ -52,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490D916D23A0C78C00BCC3AE /* 11-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "11-input.txt"; sourceTree = "<group>"; };
+		490D916F23A0C79700BCC3AE /* Day11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day11.swift; sourceTree = "<group>"; };
+		490D917123A0C85700BCC3AE /* PaintRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintRobot.swift; sourceTree = "<group>"; };
 		4918DFBE239F681800E8BC47 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 		4918DFC0239F69D500E8BC47 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
 		4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidMap.swift; sourceTree = "<group>"; };
@@ -76,7 +82,7 @@
 		49B6875623966F980080C79C /* String+lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+lines.swift"; sourceTree = "<group>"; };
 		49B68758239674EA0080C79C /* WirePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirePanel.swift; sourceTree = "<group>"; };
 		49B6875A2396766C0080C79C /* Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
-		49B6875C239683030080C79C /* CGPoint+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Hashable.swift"; sourceTree = "<group>"; };
+		49B6875C239683030080C79C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		49BCC08A2397B5920038C687 /* Int+digits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+digits.swift"; sourceTree = "<group>"; };
 		49C9C9C2239BA2D0001CAD65 /* Day7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day7.swift; sourceTree = "<group>"; };
 		49C9C9C4239BA33C001CAD65 /* Amplifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amplifiers.swift; sourceTree = "<group>"; };
@@ -111,7 +117,7 @@
 		497CE2FE2396C6E800D7E218 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				49B6875C239683030080C79C /* CGPoint+Hashable.swift */,
+				49B6875C239683030080C79C /* CGPoint+Extensions.swift */,
 				49B6875623966F980080C79C /* String+lines.swift */,
 				49BCC08A2397B5920038C687 /* Int+digits.swift */,
 				4918DFC0239F69D500E8BC47 /* CGVector+Extensions.swift */,
@@ -130,6 +136,7 @@
 				496C9934239BB1C600E4654B /* 7-1-input.txt */,
 				4931CEFF239CD11400732B40 /* 8-1-input.txt */,
 				49CB56BF239E20D600D6DDD6 /* 9-1-input.txt */,
+				490D916D23A0C78C00BCC3AE /* 11-input.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -167,6 +174,7 @@
 				49C9C9C4239BA33C001CAD65 /* Amplifiers.swift */,
 				4931CF05239CD38F00732B40 /* SpaceImage.swift */,
 				4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */,
+				490D917123A0C85700BCC3AE /* PaintRobot.swift */,
 			);
 			path = AdventKit;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 				4931CF03239CD13A00732B40 /* Day8.swift */,
 				49CB56BD239E178500D6DDD6 /* Day9.swift */,
 				4918DFBE239F681800E8BC47 /* Day10.swift */,
+				490D916F23A0C79700BCC3AE /* Day11.swift */,
 			);
 			path = AdventKitTests;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 				499F1F042397CCA800827A7A /* 2-1-input.txt in Resources */,
 				496C9935239BB1C600E4654B /* 7-1-input.txt in Resources */,
 				4931CF00239CD11400732B40 /* 8-1-input.txt in Resources */,
+				490D916E23A0C78C00BCC3AE /* 11-input.txt in Resources */,
 				499F1F052397CCA800827A7A /* 1-1-input.txt in Resources */,
 				49E911F82398F3C3008D1579 /* 5-1-input.txt in Resources */,
 				49CB56C0239E20D600D6DDD6 /* 9-1-input.txt in Resources */,
@@ -309,10 +319,11 @@
 			files = (
 				49C9C9C5239BA33C001CAD65 /* Amplifiers.swift in Sources */,
 				4918DFC3239F6BD100E8BC47 /* AsteroidMap.swift in Sources */,
-				49B6875D239683030080C79C /* CGPoint+Hashable.swift in Sources */,
+				49B6875D239683030080C79C /* CGPoint+Extensions.swift in Sources */,
 				497CE3022397A0E200D7E218 /* PasswordGuesser.swift in Sources */,
 				49B6875323963DCB0080C79C /* Computer.swift in Sources */,
 				4918DFC1239F69D500E8BC47 /* CGVector+Extensions.swift in Sources */,
+				490D917223A0C85700BCC3AE /* PaintRobot.swift in Sources */,
 				49B68759239674EA0080C79C /* WirePanel.swift in Sources */,
 				49B6875723966F980080C79C /* String+lines.swift in Sources */,
 				49B6875523966F4B0080C79C /* InputReader.swift in Sources */,
@@ -334,6 +345,7 @@
 				4918DFBF239F681800E8BC47 /* Day10.swift in Sources */,
 				49C9C9C3239BA2D0001CAD65 /* Day7.swift in Sources */,
 				49CF040A239A317E00F71BDC /* Day6.swift in Sources */,
+				490D917023A0C79700BCC3AE /* Day11.swift in Sources */,
 				49CB56BE239E178500D6DDD6 /* Day9.swift in Sources */,
 				49B6875B2396766C0080C79C /* Day3.swift in Sources */,
 			);

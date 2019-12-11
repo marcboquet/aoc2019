@@ -18,3 +18,9 @@ extension CGPoint: Hashable {
         hasher.combine(y)
     }
 }
+
+public extension CGPoint {
+    var rounded: CGPoint {
+        return CGPoint(x: Int(self.x), y: Int(self.y))
+    }
+}
