@@ -42,6 +42,8 @@
 		49CF040E239A37B700F71BDC /* 6-1-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 49CF040D239A37B700F71BDC /* 6-1-input.txt */; };
 		49E911F62398F380008D1579 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E911F52398F380008D1579 /* Day5.swift */; };
 		49E911F82398F3C3008D1579 /* 5-1-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 49E911F72398F3C3008D1579 /* 5-1-input.txt */; };
+		49ECCFE723A20D0C0052442D /* Day12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECCFE623A20D0B0052442D /* Day12.swift */; };
+		49ECCFE923A20E8F0052442D /* Moons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECCFE823A20E8F0052442D /* Moons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		49CF040D239A37B700F71BDC /* 6-1-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "6-1-input.txt"; sourceTree = "<group>"; };
 		49E911F52398F380008D1579 /* Day5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 		49E911F72398F3C3008D1579 /* 5-1-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "5-1-input.txt"; sourceTree = "<group>"; };
+		49ECCFE623A20D0B0052442D /* Day12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day12.swift; sourceTree = "<group>"; };
+		49ECCFE823A20E8F0052442D /* Moons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 				4931CF05239CD38F00732B40 /* SpaceImage.swift */,
 				4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */,
 				490D917123A0C85700BCC3AE /* PaintRobot.swift */,
+				49ECCFE823A20E8F0052442D /* Moons.swift */,
 			);
 			path = AdventKit;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				49CB56BD239E178500D6DDD6 /* Day9.swift */,
 				4918DFBE239F681800E8BC47 /* Day10.swift */,
 				490D916F23A0C79700BCC3AE /* Day11.swift */,
+				49ECCFE623A20D0B0052442D /* Day12.swift */,
 			);
 			path = AdventKitTests;
 			sourceTree = "<group>";
@@ -319,6 +325,7 @@
 			files = (
 				49C9C9C5239BA33C001CAD65 /* Amplifiers.swift in Sources */,
 				4918DFC3239F6BD100E8BC47 /* AsteroidMap.swift in Sources */,
+				49ECCFE923A20E8F0052442D /* Moons.swift in Sources */,
 				49B6875D239683030080C79C /* CGPoint+Extensions.swift in Sources */,
 				497CE3022397A0E200D7E218 /* PasswordGuesser.swift in Sources */,
 				49B6875323963DCB0080C79C /* Computer.swift in Sources */,
@@ -348,6 +355,7 @@
 				490D917023A0C79700BCC3AE /* Day11.swift in Sources */,
 				49CB56BE239E178500D6DDD6 /* Day9.swift in Sources */,
 				49B6875B2396766C0080C79C /* Day3.swift in Sources */,
+				49ECCFE723A20D0C0052442D /* Day12.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
