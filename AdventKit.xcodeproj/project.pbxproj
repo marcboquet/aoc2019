@@ -10,6 +10,9 @@
 		490D916E23A0C78C00BCC3AE /* 11-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 490D916D23A0C78C00BCC3AE /* 11-input.txt */; };
 		490D917023A0C79700BCC3AE /* Day11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D916F23A0C79700BCC3AE /* Day11.swift */; };
 		490D917223A0C85700BCC3AE /* PaintRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D917123A0C85700BCC3AE /* PaintRobot.swift */; };
+		4915508423A4DCC300262595 /* 13-input.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4915508323A4DCC300262595 /* 13-input.txt */; };
+		4915508623A4DCD000262595 /* Day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915508523A4DCD000262595 /* Day13.swift */; };
+		4915508823A4DCF500262595 /* Arcade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915508723A4DCF500262595 /* Arcade.swift */; };
 		4918DFBF239F681800E8BC47 /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFBE239F681800E8BC47 /* Day10.swift */; };
 		4918DFC1239F69D500E8BC47 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFC0239F69D500E8BC47 /* CGVector+Extensions.swift */; };
 		4918DFC3239F6BD100E8BC47 /* AsteroidMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */; };
@@ -60,6 +63,9 @@
 		490D916D23A0C78C00BCC3AE /* 11-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "11-input.txt"; sourceTree = "<group>"; };
 		490D916F23A0C79700BCC3AE /* Day11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day11.swift; sourceTree = "<group>"; };
 		490D917123A0C85700BCC3AE /* PaintRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintRobot.swift; sourceTree = "<group>"; };
+		4915508323A4DCC300262595 /* 13-input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "13-input.txt"; sourceTree = "<group>"; };
+		4915508523A4DCD000262595 /* Day13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day13.swift; sourceTree = "<group>"; };
+		4915508723A4DCF500262595 /* Arcade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arcade.swift; sourceTree = "<group>"; };
 		4918DFBE239F681800E8BC47 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 		4918DFC0239F69D500E8BC47 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
 		4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidMap.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 				4931CEFF239CD11400732B40 /* 8-1-input.txt */,
 				49CB56BF239E20D600D6DDD6 /* 9-1-input.txt */,
 				490D916D23A0C78C00BCC3AE /* 11-input.txt */,
+				4915508323A4DCC300262595 /* 13-input.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 				4918DFC2239F6BD100E8BC47 /* AsteroidMap.swift */,
 				490D917123A0C85700BCC3AE /* PaintRobot.swift */,
 				49ECCFE823A20E8F0052442D /* Moons.swift */,
+				4915508723A4DCF500262595 /* Arcade.swift */,
 			);
 			path = AdventKit;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				4918DFBE239F681800E8BC47 /* Day10.swift */,
 				490D916F23A0C79700BCC3AE /* Day11.swift */,
 				49ECCFE623A20D0B0052442D /* Day12.swift */,
+				4915508523A4DCD000262595 /* Day13.swift */,
 			);
 			path = AdventKitTests;
 			sourceTree = "<group>";
@@ -300,6 +309,7 @@
 				49CF040E239A37B700F71BDC /* 6-1-input.txt in Resources */,
 				499F1F062397CCA800827A7A /* 3-1-input.txt in Resources */,
 				499F1F042397CCA800827A7A /* 2-1-input.txt in Resources */,
+				4915508423A4DCC300262595 /* 13-input.txt in Resources */,
 				496C9935239BB1C600E4654B /* 7-1-input.txt in Resources */,
 				4931CF00239CD11400732B40 /* 8-1-input.txt in Resources */,
 				490D916E23A0C78C00BCC3AE /* 11-input.txt in Resources */,
@@ -334,6 +344,7 @@
 				49B68759239674EA0080C79C /* WirePanel.swift in Sources */,
 				49B6875723966F980080C79C /* String+lines.swift in Sources */,
 				49B6875523966F4B0080C79C /* InputReader.swift in Sources */,
+				4915508823A4DCF500262595 /* Arcade.swift in Sources */,
 				4931CF06239CD38F00732B40 /* SpaceImage.swift in Sources */,
 				49BCC08B2397B5920038C687 /* Int+digits.swift in Sources */,
 				49CF040C239A31AE00F71BDC /* OrbitMap.swift in Sources */,
@@ -348,6 +359,7 @@
 				499F1F082397D58500827A7A /* Day1.swift in Sources */,
 				49E911F62398F380008D1579 /* Day5.swift in Sources */,
 				4931CF04239CD13A00732B40 /* Day8.swift in Sources */,
+				4915508623A4DCD000262595 /* Day13.swift in Sources */,
 				499F1EFF2397CB7A00827A7A /* Day2.swift in Sources */,
 				4918DFBF239F681800E8BC47 /* Day10.swift in Sources */,
 				49C9C9C3239BA2D0001CAD65 /* Day7.swift in Sources */,
